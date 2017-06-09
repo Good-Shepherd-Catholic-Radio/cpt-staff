@@ -20,7 +20,7 @@ class CPT_GSCR_Staff extends RBM_CPT {
 	public $post_args = array(
 		'hierarchical' => true,
 		'supports' => array( 'title', 'editor', 'author', 'thumbnail' ),
-		'has_archive' => true,
+		'has_archive' => false,
 		'rewrite' => array(
 			'slug' => 'staff',
 			'with_front' => false,
