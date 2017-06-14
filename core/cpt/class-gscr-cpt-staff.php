@@ -51,6 +51,8 @@ class CPT_GSCR_Staff extends RBM_CPT {
 		
 		add_action( 'init', array( $this, 'register_taxonomy' ) );
 		
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
+		
 	}
 	
 	/**
@@ -71,6 +73,44 @@ class CPT_GSCR_Staff extends RBM_CPT {
 			'hierarchical' => true,
 			'show_admin_column' => true,
 		) );
+		
+	}
+	
+	/**
+	 * Add Meta Box
+	 * 
+	 * @access		public
+	 * @since		1.0.0
+	 * @return		void
+	 */
+	public function add_meta_boxes() {
+		
+		add_meta_box(
+			'staff-position',
+			sprintf( _x( '%s Meta', 'Metabox Title', 'gscr-cpt-staff' ), $this->label_singular ),
+			array( $this, 'metabox_content' ),
+			$this->post_type,
+			'side'
+		);
+		
+	}
+	
+	/**
+	 * Add Meta Field
+	 * 
+	 * @access		public
+	 * @since		1.0.0
+	 * @return		void
+	 */
+	public function metabox_content() {
+		
+		rbm_do_field_text(
+			'staff_position',
+			_x( 'Position/Title', 'Position/Title Label', 'gscr-cpt-staff' ),
+			false,
+			array(
+			)
+		);
 		
 	}
 	
