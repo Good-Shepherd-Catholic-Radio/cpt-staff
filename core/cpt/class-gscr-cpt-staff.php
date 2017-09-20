@@ -28,6 +28,10 @@ class CPT_GSCR_Staff extends RBM_CPT {
 			'pages' => true
 		),
 		'menu_position' => 11,
+		'exclude_from_search' => true,
+		'publicly_queryable' => false,
+		'show_in_nav_menus' => false,
+		'show_ui' => true,
 		//'capability_type' => 'staff',
 	);
 
